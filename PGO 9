@@ -1,0 +1,103 @@
+public abstract class Figure {
+    public abstract double getPerimeter();
+    public double getArea() {
+        return 0;
+    }
+
+(Main Java)
+// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+// then press Enter. You can now see whitespace characters in your code.
+ import java.util.ArrayList;
+ import java.util.List;
+ public class Main {
+     public static void main(String[] args) {
+                double radius = 3d;
+                Figure circle = new Figure(radius) {
+                    @Override
+                    public double getPerimeter() {
+                        return 0;}
+                };
+                double baseSide = 10d;
+                double side = 5d;
+                double height = 8d;
+                Figure parallelogram = new Figure(baseSide, side, height);
+
+                double sideA = 15d;
+                double sideB = 10;
+                Figure rectangle = new Figure(sideA, sideB) {\
+                    @Override
+                    public double getPerimeter() {
+                        return 0;}
+                };
+                List<Figure> figures = new ArrayList<>(3);
+                figures.add(circle);
+                figures.add(parallelogram);
+                figures.add(rectangle);
+                for (Figure figure : figures) {
+                    System.out.println("Area: " + figure.getArea() + " units.");
+                    System.out.println("Perimeter: " + figure.getPerimeter() + " units.\n");
+                }
+            }
+        }
+
+
+(Circle Java class)
+public class Circle {
+    public class Circle implements Figure {
+        private double radius;
+        public Circle(double radius) {
+            this.radius = radius;}
+        @Override
+        public double getPerimeter() {
+            return 2 * Math.PI * radius;}
+        @Override
+        public double getArea() {
+            return Math.PI * Math.pow(radius, 2);
+        }
+    }
+}
+
+(Parallelogram Class)
+public class Parallelogram {
+    public class Parallelogram extends Figure {
+        private double baseSide;
+        private double side;
+        private double height;
+        public Parallelogram(double baseSide, double side, double height) {
+            this.baseSide = baseSide;
+            this.side = side;
+            this.height = height;}
+        @Override
+        public double getPerimeter() {
+            return 2 * (baseSide + side);
+       }
+        @Override
+        public double getArea() {
+            return baseSide * height;}
+    }
+    public Parallelogram(double baseSide, double side, double height) {
+    }
+}
+
+
+(Rectangle Class)
+public class Rectangle {
+    public class Rectangle extends Figure {
+        private double sideA;
+        private double sideB;
+        public Rectangle(double sideA, double sideB) {
+            this.sideA = sideA;
+            this.sideB = sideB;}
+        @Override
+        public double getPerimeter() {return 2 * (sideA + sideB);
+        }
+        @Override
+        public double getArea() {return sideA * sideB;
+        }
+    }
+    public Rectangle(double sideA, double sideB) {
+    }
+}
+
+
+
