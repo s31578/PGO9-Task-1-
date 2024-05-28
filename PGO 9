@@ -13,7 +13,7 @@ public abstract class Figure {
      public static void main(String[] args) {
                 double radius = 3d;
                 Figure circle = new Figure(radius) {
-                    @Override
+               
                     public double getPerimeter() {
                         return 0;}
                 };
@@ -25,7 +25,7 @@ public abstract class Figure {
                 double sideA = 15d;
                 double sideB = 10;
                 Figure rectangle = new Figure(sideA, sideB) {\
-                    @Override
+                    
                     public double getPerimeter() {
                         return 0;}
                 };
@@ -47,10 +47,10 @@ public class Circle {
         private double radius;
         public Circle(double radius) {
             this.radius = radius;}
-        @Override
+       
         public double getPerimeter() {
             return 2 * Math.PI * radius;}
-        @Override
+       
         public double getArea() {
             return Math.PI * Math.pow(radius, 2);
         }
@@ -67,11 +67,11 @@ public class Parallelogram {
             this.baseSide = baseSide;
             this.side = side;
             this.height = height;}
-        @Override
+       
         public double getPerimeter() {
             return 2 * (baseSide + side);
        }
-        @Override
+       
         public double getArea() {
             return baseSide * height;}
     }
@@ -88,10 +88,10 @@ public class Rectangle {
         public Rectangle(double sideA, double sideB) {
             this.sideA = sideA;
             this.sideB = sideB;}
-        @Override
+    
         public double getPerimeter() {return 2 * (sideA + sideB);
         }
-        @Override
+        
         public double getArea() {return sideA * sideB;
         }
     }
